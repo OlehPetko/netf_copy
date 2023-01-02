@@ -1,9 +1,39 @@
 import styles from "./Main.module.scss"
-function Information() {
-    return (
-        <div>
+import Button from "../../UI/Button/Button";
 
+function Information({movie}) {
+
+    const addFavorites = (movieName) => {
+        let favorites = localStorage.getItem('favMovies')
+        if (favorites) {
+            favorites = JSON.parse(favorites)
+            localStorage.setItem('favMovies', [...favorites, movieName])
+            alert(`${movieName} now in favorite`)
+        }
+    }
+
+    return (
+        <div className={styles.info}>
+            <img src={movie.logo} alt={movie.name} width='200'/>
+            <div className={styles.additional}>
+               <span>{movie.year}</span>
+                <span>{movie.limitAge}</span>
+                <span>{movie.rating}</span>
+                <span>{movie.duration}</span>
+            </div>
+            <div className={styles.description}>{movie.description}</div>
+            <div className={styles.buttons}>
+                <Button cb={() => console.log('video is open')}>
+                    <i className='bx bx-play' style={{color: '#c62e21'}}></i>
+                    <span>Play</span>
+                </Button>
+                <Button cb={addFavorites}>
+                    <i className='bx bx-plus'></i>
+                    <span>My list</span>
+                </Button>
+            </div>
         </div>
     )
 }
+
 export default Information

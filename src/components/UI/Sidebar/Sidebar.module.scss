@@ -1,0 +1,37 @@
+$gray: #9b9a97;
+
+.sidebar {
+
+  > button {
+  }
+
+  background-color: transparent;
+  border: none;
+  color: gray;
+  font-size: 20px;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 0.5rem;
+
+      a {
+        padding: 0.5rem;
+        display: block;
+        color: gray;
+        text-decoration: none;
+        border-right: 2px solid transparent;
+        font-size: 20px;
+        text-align: right;
+
+        &:hover,
+        &.active {
+          border-color: #c62e21;
+          background-color: #2A2A2C;
+        }
+      }
+    }
+  }
+}
