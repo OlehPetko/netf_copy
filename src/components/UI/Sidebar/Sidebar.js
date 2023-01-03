@@ -4,13 +4,13 @@ function Sidebar({isSidebarShow, setIsSidebarShow }) {
     const menu = ['Popular', 'TV Shows', 'Films', 'My list']
 
     return (
-        <div className={styles.sidebar} style={{width: isSidebarShow ? 30 : 15 }}>
-            <button onClick={() => setIsSidebarShow(true)}>
-            <i className={`bx bx-${isSidebarShow ? 'X' : 'border-left'}`}></i>
+        <div className={styles.sidebar} style={{width: isSidebarShow ? '15%' : '10%' }}>
+            <button onClick={() => setIsSidebarShow(!isSidebarShow)}>
+            <i className={`bx bx-${isSidebarShow ? 'x' : 'border-left'}`}></i>
             </button>
-            <ul>
+            <ul  className={isSidebarShow ? styles.show : '' }>
                 {menu.map(title =>
-                    <li>
+                    <li key={title}>
                         <a href={title}>{title}</a>
                     </li>)}
             </ul>

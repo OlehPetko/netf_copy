@@ -1,18 +1,32 @@
 $gray: #9b9a97;
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 .sidebar {
 
   > button {
+    background-color: transparent;
+    border: none;
+    color: gray;
+    font-size: 30px;
   }
 
-  background-color: transparent;
-  border: none;
-  color: gray;
-  font-size: 20px;
 
   ul {
     list-style-type: none;
     padding: 0;
+    display: none;
+    animation: opacity 0.4s;
+
+    &.show {
+      display: block;
+    }
 
     li {
       margin-bottom: 0.5rem;
@@ -22,7 +36,7 @@ $gray: #9b9a97;
         display: block;
         color: gray;
         text-decoration: none;
-        border-right: 2px solid transparent;
+        border-left: 2px solid transparent;
         font-size: 20px;
         text-align: right;
 

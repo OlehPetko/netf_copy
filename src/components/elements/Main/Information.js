@@ -3,18 +3,19 @@ import Button from "../../UI/Button/Button";
 
 function Information({movie}) {
 
-    const addFavorites = (movieName) => {
+    const addToFavorites = movieName => {
         let favorites = localStorage.getItem('favMovies')
+
         if (favorites) {
             favorites = JSON.parse(favorites)
             localStorage.setItem('favMovies', [...favorites, movieName])
-            alert(`${movieName} now in favorite`)
+            alert(`${movieName} теперь в избранном!`)
         }
     }
 
     return (
         <div className={styles.info}>
-            <img src={movie.logo} alt={movie.name} width='200'/>
+            <img src={movie.logo} alt={movie.name} width='200' style={{opacity: 0.7}}/>
             <div className={styles.additional}>
                <span>{movie.year}</span>
                 <span>{movie.limitAge}</span>
@@ -27,7 +28,7 @@ function Information({movie}) {
                     <i className='bx bx-play' style={{color: '#c62e21'}}></i>
                     <span>Play</span>
                 </Button>
-                <Button cb={addFavorites}>
+                <Button cb={addToFavorites}>
                     <i className='bx bx-plus'></i>
                     <span>My list</span>
                 </Button>
